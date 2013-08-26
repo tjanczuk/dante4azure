@@ -1,0 +1,21 @@
+<html>
+<title>Dante</title>
+<head>
+<script src="socket.io/socket.io.js"></script>
+<script>
+    var client = io.connect(window.location.protocol + '//' + window.location.host);    
+    client.on('divinecomedy', addLine);
+
+    function addLine(line) {
+        var body = document.getElementsByTagName('body')[0];
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(line));
+        body.appendChild(div);              
+    }
+   
+</script>
+</head>
+<body>
+    <h1>Dante over WebSockets with socket.io</h1>
+</body>
+</html>
